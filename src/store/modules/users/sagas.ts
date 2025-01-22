@@ -5,11 +5,12 @@ import {
   fetchUsersFailure,
   fetchUsersSuccess,
 } from "./actions";
+import { User } from "./types";
 
 function* fetchUsersSaga(): Generator {
   try {
     const response = yield call(
-      axios.get,
+      axios.get<User[]>,
       "https://jsonplaceholder.typicode.com/users"
     );
     yield put(fetchUsersSuccess(response.data));
