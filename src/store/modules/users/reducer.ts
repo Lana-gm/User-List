@@ -4,6 +4,7 @@ import {
   FETCH_USERS_REQUEST,
   FETCH_USERS_SUCCESS,
   REMOVE_FROM_FAVORITES,
+  UsersActions,
 } from "./actions";
 
 import { UsersState } from "./types";
@@ -15,7 +16,10 @@ const initialState: UsersState = {
   error: false,
 };
 
-const usersReducer = (state = initialState, action: any): UsersState => {
+const usersReducer = (
+  state = initialState,
+  action: UsersActions
+): UsersState => {
   switch (action.type) {
     case FETCH_USERS_REQUEST:
       return { ...state, loading: true };
