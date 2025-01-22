@@ -1,11 +1,19 @@
 import { User } from "./types";
 
-export const FETCH_USERS_REQUEST = "FETCH_USERS_REQUEST";
-export const FETCH_USERS_SUCCESS = "FETCH_USERS_SUCCESS";
-export const FETCH_USERS_FAILURE = "FETCH_USERS_FAILURE";
+export const FETCH_USERS_REQUEST = "FETCH_USERS_REQUEST" as const;
+export const FETCH_USERS_SUCCESS = "FETCH_USERS_SUCCESS" as const;
+export const FETCH_USERS_FAILURE = "FETCH_USERS_FAILURE" as const;
 
-export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES";
-export const REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES";
+export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES" as const;
+export const REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES" as const;
+
+export type UsersActions = ReturnType<
+  | typeof fetchUsersRequest
+  | typeof fetchUsersSuccess
+  | typeof fetchUsersFailure
+  | typeof addToFavorites
+  | typeof removeFromFavorites
+>;
 
 export const fetchUsersRequest = () => ({ type: FETCH_USERS_REQUEST });
 
